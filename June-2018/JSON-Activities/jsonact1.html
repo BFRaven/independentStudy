@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Json Crash Course Sandbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<ul id="actors"></ul>
+
+
+    <script> 
+        var cars = {
+            model: "Honda",
+            year: 2001,
+            color: "red",
+            address: {
+                street: "6 main street",
+                cities:  ["Minneapolis", "St. Paul",]
+
+            }, 
+                people: ["Kelly", "Brian", "Tim"]
+            }
+
+            // console logging the array of cities within the address object.
+            // console.log(cars.address.cities[1]);
+
+            // making it JSON readable 
+        cars = JSON.stringify(cars);
+            
+            // making it a js object
+        cars = JSON.parse(cars);
+        // console.log(cars.color); This will ensure that the console log does not return undefined.
+
+        // array of objects with variable of actors' info
+
+        var actors = [
+            {
+                name: "Brad Pitt",
+                age: 55,    
+            },
+            {
+                name: "Robert Downy Jr",    
+                age: 59,
+
+            }, {
+                name: "Ben Barnes",
+                age: 38,
+
+            }
+        ];
+            //console logging the indexes which will yield the name and ages of each other actors
+            console.log(actors[1].age);
+            console.log(actors[0].name);
+            console.log(actors[2].age);
+
+
+            // this variable will hold the names of actors to be displayed in the webpage.
+            var output = '';
+            // instead of writing it all, making a for loop to iterate through all names
+            for (var i =0; i < actors.length; i++){
+                // console.log(actors[i].name);
+                //console log iterate through all ages
+                // console.log(actors[i].age);
+                // console.log(actors[i]);
+                
+                // this dynamically makes a list of names which will be displayed in webpage.
+                output += '<li>' +actors[i].name+'</li>';
+                
+            }
+            //using jquery, actually outputting the names to website; using html vs text. When putting
+            // the .html method, it automatically makes a list. When using text, page displays
+            // everything that is in strings aka quotation marks.
+            $("#actors").html(output);
+
+
+    </script>
+
+</body>
+
+</html>
